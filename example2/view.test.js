@@ -20,11 +20,11 @@ describe("Page view", () => {
     view.addParagraph();
     expect(document.querySelectorAll("p").length).toBe(3);
   });
- 
+
   it("displays 0 paragraphs after clearParagraphs() has be called", () => {
     const view = new View();
+    view.addParagraph();
     view.clearParagraphs();
     expect(document.querySelectorAll("p").length).toBe(0);
-  })
-
+  });
 });
