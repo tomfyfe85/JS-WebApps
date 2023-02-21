@@ -11,7 +11,7 @@ class NotesModel {
     this.array = [];
   }
 
-  getNote() {
+  getNotes() {
     return this.array;
   }
 }
