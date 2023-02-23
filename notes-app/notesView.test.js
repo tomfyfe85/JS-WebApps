@@ -31,7 +31,8 @@ describe("NotesView", () => {
     notesView.displayNotes();
     expect(document.getElementsByClassName("note").length).toBe(1);
   });
-  it("(3) creates a new element with class name 'note'", () => {
+
+  it("(3) first element with class name 'note' is 'i'm a note!", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -40,6 +41,17 @@ describe("NotesView", () => {
       "i'm a note!",
     ]);
   });
-});
 
+  it("(4) creates a new element with class name 'note'", () => {
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+    notesModel.addNote("i'm a note!");
+    notesView.displayNotes();
+    expect(document.getElementsByClassName("note").length).toBe(1) &&
+      expect(document.querySelectorAll("div").length).toBe(2) &&
+      expect(document.getElementsByClassName("note")[0].innerText).toEqual([
+        "i'm a note!",
+      ]);
+  });
+});
 // document.getElementsByClassName("note").length &&
