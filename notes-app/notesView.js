@@ -11,6 +11,7 @@ class NotesView {
     newDiv.classList.add("note");
     newDiv.innerText = notes;
     this.body.append(newDiv);
+    console.log(newDiv.innerText);
   }
 }
 

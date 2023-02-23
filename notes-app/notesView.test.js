@@ -31,6 +31,15 @@ describe("NotesView", () => {
     notesView.displayNotes();
     expect(document.getElementsByClassName("note").length).toBe(1);
   });
+  it("(3) creates a new element with class name 'note'", () => {
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+    notesModel.addNote("i'm a note!");
+    notesView.displayNotes();
+    expect(document.getElementsByClassName("note")[0].innerText).toEqual([
+      "i'm a note!",
+    ]);
+  });
 });
 
 // document.getElementsByClassName("note").length &&
