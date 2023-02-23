@@ -7,7 +7,8 @@ class NotesView {
   displayNotes() {
     const notes = this.model.getNotes();
     const newDiv = document.createElement("div");
-    // newDiv.setAttribute("class", "note");
+    // document.getElementsByClassName("note");
+    newDiv.classList.add("note");
     newDiv.innerText = notes;
     this.body.append(newDiv);
   }

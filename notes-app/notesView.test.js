@@ -16,12 +16,20 @@ describe("NotesView", () => {
     document.body.innerHTML = fs.readFileSync("./index.html");
   });
 
-  it("returns number of divs", () => {
+  it("(1) creates a new div when notesView.displayNotes(); is called ", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
     notesView.displayNotes();
     expect(document.querySelectorAll("div").length).toBe(2);
+  });
+
+  it("(2) creates a new element with class name 'note'", () => {
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+    notesModel.addNote("i'm a note!");
+    notesView.displayNotes();
+    expect(document.getElementsByClassName("note").length).toBe(1);
   });
 });
 
