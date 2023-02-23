@@ -1,0 +1,5 @@
+(7)test driving notes view class
+
+Go back and look through coutner app example
+Look through testing DOM updates / example2
+
