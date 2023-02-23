@@ -42,7 +42,7 @@ describe("NotesView", () => {
     ]);
   });
 
-  it("(4) creates a new element with class name 'note'", () => {
+  it("(4) tests 1,2,3 all pass in the same instance", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -52,6 +52,16 @@ describe("NotesView", () => {
       expect(document.getElementsByClassName("note")[0].innerText).toEqual([
         "i'm a note!",
       ]);
+  });
+
+  it("(5) notesView.displayNotes() creates 2 divs", () => {
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+    notesModel.addNote("i'm a note!");
+    notesModel.addNote("i'm a note 2!");
+
+    notesView.displayNotes();
+    expect(document.querySelectorAll("div").length).toBe(3);
   });
 });
 // document.getElementsByClassName("note").length &&

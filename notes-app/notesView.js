@@ -9,8 +9,10 @@ class NotesView {
     const newDiv = document.createElement("div");
     newDiv.classList.add("note");
     newDiv.innerText = notes;
-    this.body.append(newDiv);
-    console.log(newDiv.innerText);
+   
+   
+      this.body.append(newDiv);
+    
   }
 }
 
