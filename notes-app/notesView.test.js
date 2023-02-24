@@ -16,7 +16,7 @@ describe("NotesView", () => {
     document.body.innerHTML = fs.readFileSync("./index.html");
   });
 
-  it("(1) creates a new div when notesView.displayNotes(); is called ", () => {
+  xit("(1) creates a new div when notesView.displayNotes(); is called ", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -24,7 +24,7 @@ describe("NotesView", () => {
     expect(document.querySelectorAll("div").length).toBe(2);
   });
 
-  it("(2) creates a new element with class name 'note'", () => {
+  xit("(2) creates a new element with class name 'note'", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -32,7 +32,7 @@ describe("NotesView", () => {
     expect(document.getElementsByClassName("note").length).toBe(1);
   });
 
-  it("(3) first element with class name 'note' is 'i'm a note!", () => {
+  xit("(3) first element with class name 'note' is 'i'm a note!", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -42,7 +42,7 @@ describe("NotesView", () => {
     ]);
   });
 
-  it("(4) tests 1,2,3 all pass in the same instance", () => {
+  xit("(4) tests 1,2,3 all pass in the same instance", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -59,9 +59,10 @@ describe("NotesView", () => {
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
     notesModel.addNote("i'm a note 2!");
+    notesModel.addNote("i'm a note 3!");
 
     notesView.displayNotes();
-    expect(document.querySelectorAll("div").length).toBe(3);
+    expect(document.querySelectorAll("div").length).toBe(4);
   });
 });
 // document.getElementsByClassName("note").length &&

@@ -2,21 +2,22 @@ class NotesView {
   constructor(model) {
     this.model = model;
     this.body = document.querySelector("body");
+    this.newDiv = "";
   }
 
   displayNotes() {
     const notes = this.model.getNotes();
-    const newDiv = document.createElement("div");
-    newDiv.classList.add("note");
-    newDiv.innerText = notes;
-   
-   
-      this.body.append(newDiv);
-    
+    // const newDiv = document.createElement("div");
+    notes.forEach((note) => {
+      this.newDiv = document.createElement("div");
+      this.body.append(this.newDiv);
+    });
+
+    console.log(notes);
   }
 }
 
 module.exports = NotesView;
- // document.getElementsByClassName("note");
+// document.getElementsByClassName("note");
 // return notes.forEach((newNote) => {
 //     this.mainContainerEl.append((newDiv.innerText = newNote));

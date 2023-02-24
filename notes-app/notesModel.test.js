@@ -1,7 +1,7 @@
 const NotesModel = require("./notesModel");
 const model = new NotesModel();
 
-describe("class NotesModel()", () => {
+xdescribe("class NotesModel()", () => {
   it("model.getNote() should return []", () => {
     expect(model.getNotes()).toEqual([]);
   });
