@@ -1,13 +1,6 @@
 /**
  * @jest-environment jsdom
  */
-// testing class NotesView ie notesView
-// will have a method 'displayNotes()' which gets list of notes from
-// notesModel and will create a new div element on the page (with an HTML class 'note')
-
-// need to require notesModel and notesModel.addNote('go to bed') ?
-//
-const fs = require("fs");
 const NotesView = require("./notesView");
 const NotesModel = require("./notesModel");
 
@@ -16,7 +9,7 @@ describe("NotesView", () => {
     document.body.innerHTML = fs.readFileSync("./index.html");
   });
 
-  xit("(1) creates a new div when notesView.displayNotes(); is called ", () => {
+  it("(1) creates a new div when notesView.displayNotes(); is called ", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -24,7 +17,7 @@ describe("NotesView", () => {
     expect(document.querySelectorAll("div").length).toBe(2);
   });
 
-  xit("(2) creates a new element with class name 'note'", () => {
+  it("(2) creates a new element with class name 'note'", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -32,26 +25,26 @@ describe("NotesView", () => {
     expect(document.getElementsByClassName("note").length).toBe(1);
   });
 
-  xit("(3) first element with class name 'note' is 'i'm a note!", () => {
+  it("(3) first element with class name 'note' is 'i'm a note!", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
     notesView.displayNotes();
-    expect(document.getElementsByClassName("note")[0].innerText).toEqual([
-      "i'm a note!",
-    ]);
+    expect(document.getElementsByClassName("note")[0].innerText).toBe(
+      "i'm a note!"
+    );
   });
 
-  xit("(4) tests 1,2,3 all pass in the same instance", () => {
+  it("(4) tests 1,2,3 all pass in the same instance", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
     notesView.displayNotes();
-    expect(document.getElementsByClassName("note").length).toBe(1) &&
-      expect(document.querySelectorAll("div").length).toBe(2) &&
-      expect(document.getElementsByClassName("note")[0].innerText).toEqual([
-        "i'm a note!",
-      ]);
+    expect(document.getElementsByClassName("note").length).toBe(1);
+    expect(document.querySelectorAll("div").length).toBe(2);
+    expect(document.getElementsByClassName("note")[0].innerText).toEqual(
+      "i'm a note!"
+    );
   });
 
   it("(5) notesView.displayNotes() creates 2 divs", () => {
@@ -63,6 +56,21 @@ describe("NotesView", () => {
 
     notesView.displayNotes();
     expect(document.querySelectorAll("div").length).toBe(4);
+  });
+
+  it("(6) notesView.displayNotes() creates 3 new divs with class name 'note'", () => {
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+    notesModel.addNote("i'm a note!");
+    notesModel.addNote("i'm a note 2!");
+    notesModel.addNote("i'm a note 3!");
+
+    notesView.displayNotes();
+    expect(document.querySelectorAll("div").length).toBe(4);
+    expect(document.getElementsByClassName("note").length).toBe(3);
+    expect(document.getElementsByClassName("note")[2].innerText).toEqual(
+      "i'm a note 3!"
+    );
   });
 });
 // document.getElementsByClassName("note").length &&
