@@ -16,4 +16,4 @@ class MessageView {
   }
 }
 
-module.exports = MessageView;
+module.exports = MessageView
