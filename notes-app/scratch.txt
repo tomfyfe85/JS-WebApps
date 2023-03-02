@@ -1,5 +1,11 @@
-(7)test driving notes view class
+(10) - adding a note - ui
 
-Go back and look through coutner app example
-Look through testing DOM updates / example2
+testing -
+1)when the the add button is clicked a new
+div is created and added to main container,
+with the id "note" with the inner text equal to the value
+of the user input 
+ - the model's addNote(note) should take the input and save the new note on the model
+ - the view's displayNotes() should display this on the page
 
+ 
