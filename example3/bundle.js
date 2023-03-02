@@ -24,6 +24,7 @@
           const inputEl = document.querySelector("#message-input");
           newMessage.innerText = inputEl.value;
           document.querySelector("#main-container").append(newMessage);
+          inputEl.value = "";
           console.log("Thanks for clicking me!");
         }
         hideMessage() {
