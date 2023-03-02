@@ -21,7 +21,8 @@
         displayMessage() {
           const newMessage = document.createElement("div");
           newMessage.id = "message";
-          newMessage.innerText = "This message is displayed by JavaScript";
+          const inputEl = document.querySelector("#message-input");
+          newMessage.innerText = inputEl.value;
           document.querySelector("#main-container").append(newMessage);
           console.log("Thanks for clicking me!");
         }
