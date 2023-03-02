@@ -20,10 +20,6 @@
         }
         displayMessage() {
           const newMessage = document.createElement("div");
-          newMessage.setAttribute("id", "message");
-          newMessage.innerText = "This message is displayed by JavaScript";
-          this.mainContainerEl.append(newMessage);
-          const newMessage = document.createElement("div");
           newMessage.id = "message";
           const inputEl = document.querySelector("#message-input");
           newMessage.innerText = inputEl.value;
