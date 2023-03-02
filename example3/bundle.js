@@ -20,14 +20,13 @@
         }
         displayMessage() {
           const newMessage = document.createElement("div");
-          newMessage.setAttribute("id", "message");
+          newMessage.id = "message";
           newMessage.innerText = "This message is displayed by JavaScript";
-          this.mainContainerEl.append(newMessage);
+          document.querySelector("#main-container").append(newMessage);
           console.log("Thanks for clicking me!");
         }
         hideMessage() {
-          const removeMessage = document.getElementById("message");
-          this.mainContainerEl.remove(removeMessage);
+          document.querySelector("#message").remove();
           console.log("message removed");
         }
       };
