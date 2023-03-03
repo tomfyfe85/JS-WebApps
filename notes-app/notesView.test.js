@@ -75,5 +75,28 @@ describe("NotesView", () => {
     );
   });
 
-  
+  it("(7) input should be saved in notesModel", () => {
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+
+    const inputEl = document.querySelector("#note-input");
+    inputEl.value = "BEER ME!";
+
+    notesModel.addNote(input.value);
+
+    expect(notesModel.getNotes()).toEqual(["BEER ME!"]);
+  });
+
+  xit("(8) when button is clicked the text input should be displayed in 'div#note'", () => {
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+
+    const inputEl = document.querySelector("#note-input");
+    inputEl.value = "BEER ME!";
+
+    const addButton = document.querySelector("#add-note-button");
+    addButton.click;
+
+    expect(document.querySelector("div#note").innerText).toEqual(inputEl.value);
+  });
 });
