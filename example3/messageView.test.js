@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 const fs = require("fs");
 const MessageView = require("./messageView");
 
