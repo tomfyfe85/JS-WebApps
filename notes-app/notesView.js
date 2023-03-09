@@ -1,8 +1,13 @@
 class NotesView {
   constructor(model) {
     this.model = model;
-    this.body = document.querySelector("#main-container");
+    this.mainContainerEl = document.querySelector("#main-container");
     this.newDiv = "";
+    this.addNoteButtonEl = document.querySelector("#note-input");
+
+    this.addNoteButtonEl.addEventListener("click", () => {
+      console.log("button clicked");
+    });
   }
 
   displayNotes() {
@@ -12,7 +17,7 @@ class NotesView {
       this.newDiv = document.createElement("div");
       this.newDiv.classList.add("note");
       this.newDiv.innerText = note;
-      this.body.append(this.newDiv);
+      this.mainContainerEl.append(this.newDiv);
     });
   }
 }
