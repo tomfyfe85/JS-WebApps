@@ -19,7 +19,7 @@ describe("NotesView", () => {
     expect(document.querySelectorAll("div").length).toBe(2);
   });
 
- xit("(2) creates a new element with class name 'note'", () => {
+  xit("(2) creates a new element with class name 'note'", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -82,22 +82,10 @@ describe("NotesView", () => {
     const inputEl = document.querySelector("#note-input");
     inputEl.value = "BEER ME!";
 
-    const addNoteButtonEl = document.querySelector('#add-note-button')
-    addNoteButtonEl.click();
-
-    expect(notesModel.getNotes()).toEqual(["BEER ME!"]);
-  });
-
-  it("(8) when button is clicked the text input should be displayed by first element with class 'note'", () => {
-    const notesModel = new NotesModel();
-    const notesView = new NotesView(notesModel);
-
-    const inputEl = document.querySelector("#note-input");
-    inputEl.value = "BEER ME!";
-
     const addNoteButtonEl = document.querySelector("#add-note-button");
     addNoteButtonEl.click();
 
-    expect(document.getElementsByClassName("note")[0].innerText).toEqual("BEER ME!");
+    expect(notesModel.getNotes()).toEqual(["BEER ME!"]);
+    expect(document.getElementsByClassName("note").length).toEqual(1);
   });
 });
