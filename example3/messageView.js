@@ -21,7 +21,7 @@ class MessageView {
     // this.mainContainerEl.append(newMessage);
     document.querySelector("#main-container").append(newMessage);
     inputEl.value = "";
-    console.log("Thanks for clicking me!");
+   
   }
 
   hideMessage() {
