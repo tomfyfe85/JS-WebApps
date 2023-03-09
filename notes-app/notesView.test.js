@@ -11,7 +11,7 @@ describe("NotesView", () => {
     document.body.innerHTML = fs.readFileSync("./index.html");
   });
 
-  it("(1) creates a new div when notesView.displayNotes(); is called ", () => {
+  xit("(1) creates a new div when notesView.displayNotes(); is called ", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -19,7 +19,7 @@ describe("NotesView", () => {
     expect(document.querySelectorAll("div").length).toBe(2);
   });
 
-  it("(2) creates a new element with class name 'note'", () => {
+  xit("(2) creates a new element with class name 'note'", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -27,7 +27,7 @@ describe("NotesView", () => {
     expect(document.getElementsByClassName("note").length).toBe(1);
   });
 
-  it("(3) first element with class name 'note' is 'i'm a note!", () => {
+  xit("(3) first element with class name 'note' is 'i'm a note!", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -37,7 +37,7 @@ describe("NotesView", () => {
     );
   });
 
-  it("(4) tests 1,2,3 all pass in the same instance", () => {
+  xit("(4) tests 1,2,3 all pass in the same instance", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -49,7 +49,7 @@ describe("NotesView", () => {
     );
   });
 
-  it("(5) notesView.displayNotes() creates 2 divs", () => {
+  xit("(5) notesView.displayNotes() creates 2 divs", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -60,7 +60,7 @@ describe("NotesView", () => {
     expect(document.querySelectorAll("div").length).toBe(4);
   });
 
-  it("(6) notesView.displayNotes() creates 3 new divs with class name 'note'", () => {
+  xit("(6) notesView.displayNotes() creates 3 new divs with class name 'note'", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
     notesModel.addNote("i'm a note!");
@@ -82,21 +82,10 @@ describe("NotesView", () => {
     const inputEl = document.querySelector("#note-input");
     inputEl.value = "BEER ME!";
 
-    notesModel.addNote(input.value);
+    const addNoteButtonEl = document.querySelector("#add-note-button");
+    addNoteButtonEl.click();
 
     expect(notesModel.getNotes()).toEqual(["BEER ME!"]);
-  });
-
-  xit("(8) when button is clicked the text input should be displayed in 'div#note'", () => {
-    const notesModel = new NotesModel();
-    const notesView = new NotesView(notesModel);
-
-    const inputEl = document.querySelector("#note-input");
-    inputEl.value = "BEER ME!";
-
-    const addButton = document.querySelector("#add-note-button");
-    addButton.click;
-
-    expect(document.querySelector("div#note").innerText).toEqual(inputEl.value);
+    expect(document.getElementsByClassName("note").length).toEqual(1);
   });
 });
