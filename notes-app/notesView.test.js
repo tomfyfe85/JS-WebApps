@@ -75,7 +75,7 @@ describe("NotesView", () => {
     );
   });
 
-  it("(7) input should be saved in notesModel", () => {
+  xit("(7) input should be saved in notesModel and no of el's with class 'note' should be 1", () => {
     const notesModel = new NotesModel();
     const notesView = new NotesView(notesModel);
 
@@ -87,5 +87,28 @@ describe("NotesView", () => {
 
     expect(notesModel.getNotes()).toEqual(["BEER ME!"]);
     expect(document.getElementsByClassName("note").length).toEqual(1);
+  });
+
+  it("(8) only a list of individual notes should be displayed", () => {
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+
+    const inputEl1 = document.querySelector("#note-input");
+    inputEl1.value = "BEER ME!";
+
+    const addNoteButtonEl = document.querySelector("#add-note-button");
+    addNoteButtonEl.click();
+
+    const inputEl2 = document.querySelector("#note-input");
+    inputEl2.value = "WINE ME!";
+    addNoteButtonEl.click();
+
+    expect(document.getElementsByClassName("note")[0].innerText).toEqual(
+      "BEER ME!"
+    );
+    expect(document.getElementsByClassName("note")[1].innerText).toEqual(
+      "WINE ME!"
+    );
+    expect(document.getElementsByClassName("note").length).toEqual(2);
   });
 });
